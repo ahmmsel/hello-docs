@@ -1,0 +1,50 @@
+# Configuration
+
+In this section, you will learn how to setup the Configuration to run the application
+
+## Setup Database
+
+```.env filename=".env"
+# Environment variables declared in this file are automatically made available to Prisma.
+# See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
+
+# Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
+# See the documentation for all the connection string options: https://pris.ly/d/connection-strings
+
+DATABASE_URL="YOUR_DATABASE_URL"
+
+NEXTAUTH_JWT_SECRET='YOUR_NEXTAUTH_JWT_SECRET'
+NEXTAUTH_SECRET='yOUR_NEXTAUTH_SECRET'
+```
+
+## Theme Configuration
+
+The Theme Colors will have default values right there but you can change it according to your preference
+
+```ts filename="tailwind.config.ts"
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      colors: {
+        primary: "YOUR_PRIMARY-COLOR",
+        secondary: "YOUR_SECONDARY_COLOR",
+        tertiary: "YOUR_TERIARY_COLOR",
+      },
+    },
+  },
+  plugins: [],
+};
+export default config;
+```
